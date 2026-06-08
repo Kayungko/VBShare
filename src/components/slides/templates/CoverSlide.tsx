@@ -7,12 +7,5 @@ interface CoverSlideProps {
 }
 
 export function CoverSlide({ slide, config }: CoverSlideProps) {
-  return (
-    <SlideFrame eyebrow={slide.eyebrow ?? config.title} title={slide.title} subtitle={slide.subtitle ?? config.subtitle} align="center">
-      <div className="cover-meta">
-        {config.presenter ? <span>{config.presenter}</span> : null}
-        <span>Web Slide Deck</span>
-      </div>
-    </SlideFrame>
-  )
+  return <SlideFrame eyebrow={slide.eyebrow} title={slide.title} subtitle={slide.subtitle ?? config.subtitle} align="center" />
 }

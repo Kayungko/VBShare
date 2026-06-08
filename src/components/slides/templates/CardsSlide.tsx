@@ -19,6 +19,7 @@ export function CardsSlide({ slide }: CardsSlideProps) {
           ))}
         </div>
       ) : null}
+      {slide.statement ? <p className="slide-statement">{slide.statement}</p> : null}
     </SlideFrame>
   )
 }

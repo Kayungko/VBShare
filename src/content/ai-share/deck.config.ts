@@ -1,7 +1,7 @@
 import type { DeckConfig } from '@/types/deck'
 
 export const deckConfig: DeckConfig = {
-  title: 'AI 分享会',
-  subtitle: '把 AI 从工具变成可复用的工作流',
+  title: 'AI Coding 不只是写代码',
+  subtitle: '把零散的小技巧整理成一个可复用的小流程',
   presenter: 'Kayung',
 }

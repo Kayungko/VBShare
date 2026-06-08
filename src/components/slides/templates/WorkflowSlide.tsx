@@ -16,6 +16,7 @@ export function WorkflowSlide({ slide }: WorkflowSlideProps) {
           </div>
         ))}
       </div>
+      {slide.statement ? <p className="slide-statement">{slide.statement}</p> : null}
     </SlideFrame>
   )
 }

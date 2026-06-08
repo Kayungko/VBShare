@@ -21,8 +21,8 @@ AI_SHARE_CONTENT_DRAFT.md
 当前状态：
 
 ```text
-已整理为评审稿。
-建议先评审这份文档，再修改 slides.ts 或页面视觉。
+已整理为评审稿，并已按 24 页结构同步到 src/content/ai-share/slides.ts。
+后续内容调整应先更新该文档，再同步页面数据。
 ```
 
 建议评审重点：
@@ -143,8 +143,22 @@ AI_SHARE_REVIEW_AND_MODULAR_REFACTOR_PLAN.md
 当前建议：
 
 ```text
-先不要直接改 slides.ts。
-等 AI_SHARE_CONTENT_DRAFT.md 评审确认后，再把最终页面内容写入 slides.ts。
+slides.ts 已开始承载新版内容稿。
+页面文案仍建议以 AI_SHARE_CONTENT_DRAFT.md 为内容来源，避免代码和文档分叉。
+```
+
+---
+
+## 开发进度与变更记录
+
+### 2026-06-09 文案落地
+
+```text
+1. 将 AI_SHARE_CONTENT_DRAFT.md 中的新版主线同步为 24 页网页演示稿。
+2. 更新 deck.config.ts，使标题和副标题与新版内容一致。
+3. 轻微调整封面、卡片页和流程页模板，支持章节封面与结论句展示。
+4. 调整标题排版和流程节点换行，降低长中文标题溢出的概率。
+5. 移除封面页与内容无关的稿件状态和 Web Deck 标签。
 ```
 
 ---

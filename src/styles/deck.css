@@ -109,9 +109,10 @@
 
 .slide-frame h1 {
   margin: 0;
-  font-size: clamp(48px, 7vw, 108px);
-  line-height: 0.98;
-  letter-spacing: -0.06em;
+  font-size: clamp(42px, 6vw, 92px);
+  line-height: 1.05;
+  letter-spacing: 0;
+  text-wrap: balance;
 }
 
 .slide-frame__subtitle {
@@ -260,11 +261,13 @@
   display: flex;
   align-items: stretch;
   gap: 16px;
+  flex-wrap: wrap;
 }
 
 .method-chain__node,
 .workflow-line__step {
   flex: 1;
+  min-width: 140px;
   padding: 28px;
   animation: rise-in 520ms both;
 }
