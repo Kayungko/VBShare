@@ -98,11 +98,18 @@
 
 .slide-frame {
   min-height: 100%;
-  padding: 9vh 8vw 8vh;
+  padding: 8vh 8vw 7vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 42px;
+}
+
+.slide-frame--split {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(520px, 1.08fr);
+  align-items: center;
+  column-gap: clamp(44px, 5vw, 88px);
 }
 
 .slide-frame--center {
@@ -118,6 +125,10 @@
 .slide-frame__header {
   position: relative;
   max-width: 1120px;
+}
+
+.slide-frame--split .slide-frame__header {
+  max-width: 760px;
 }
 
 .slide-frame--center .slide-frame__header::before {
@@ -148,6 +159,11 @@
   text-wrap: balance;
 }
 
+.slide-frame--split h1 {
+  font-size: clamp(40px, 4.65vw, 74px);
+  line-height: 1.06;
+}
+
 .slide-frame__subtitle {
   max-width: 860px;
   margin: 26px 0 0;
@@ -159,6 +175,73 @@
 .slide-frame__body {
   width: 100%;
   max-width: 1180px;
+}
+
+.slide-frame--split .slide-frame__body {
+  max-width: none;
+}
+
+.hero-command,
+.workflow-command {
+  display: inline-flex;
+  align-items: center;
+  max-width: min(760px, 86vw);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 16px 18px;
+  color: var(--text-muted);
+  background: rgba(16, 16, 16, 0.88);
+  box-shadow: var(--shadow);
+}
+
+.hero-command span,
+.workflow-command span {
+  margin-right: 12px;
+  color: var(--accent);
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+
+.hero-command code,
+.workflow-command code {
+  overflow: hidden;
+  color: var(--text);
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: clamp(13px, 1.15vw, 16px);
+  line-height: 1.4;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.workflow-showcase,
+.method-panel {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: clamp(20px, 2vw, 30px);
+  background: rgba(16, 16, 16, 0.9);
+  box-shadow: var(--shadow);
+}
+
+.workflow-showcase .slide-statement,
+.method-panel .slide-statement {
+  margin: 22px 0 0;
+  font-size: clamp(18px, 1.6vw, 24px);
+}
+
+.method-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+  color: var(--text-dim);
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 13px;
+}
+
+.method-panel__header code {
+  color: var(--accent);
 }
 
 .summary-actions {
@@ -183,8 +266,17 @@
   gap: 18px;
 }
 
+.slide-frame--split .compare-grid {
+  grid-template-columns: 1fr;
+}
+
 .card-grid--three {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.slide-frame--split .card-grid,
+.slide-frame--split .card-grid--three {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .glass-card,
@@ -199,8 +291,8 @@
 }
 
 .glass-card {
-  min-height: 190px;
-  padding: 26px;
+  min-height: 142px;
+  padding: 22px;
   animation: rise-in 520ms both;
 }
 
@@ -213,7 +305,7 @@
 .card-index,
 .card-tag {
   display: inline-flex;
-  margin-bottom: 28px;
+  margin-bottom: 20px;
   color: var(--accent);
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   font-size: 13px;
@@ -223,7 +315,7 @@
 .glass-card h2,
 .compare-card h2 {
   margin: 0 0 14px;
-  font-size: clamp(23px, 2.35vw, 38px);
+  font-size: clamp(20px, 2vw, 32px);
   font-weight: 560;
   line-height: 1.16;
   text-wrap: balance;
@@ -285,8 +377,8 @@
 }
 
 .compare-card {
-  min-height: 330px;
-  padding: 32px;
+  min-height: 188px;
+  padding: 26px;
 }
 
 .compare-card--accent {
@@ -301,18 +393,20 @@
 
 .method-chain,
 .workflow-line {
-  display: flex;
-  align-items: stretch;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
   gap: 14px;
-  flex-wrap: wrap;
+}
+
+.workflow-line {
+  margin-top: 18px;
 }
 
 .method-chain__node,
 .workflow-line__step {
   position: relative;
-  flex: 1;
-  min-width: 140px;
-  padding: 24px;
+  min-width: 0;
+  padding: 18px;
   animation: rise-in 520ms both;
 }
 
@@ -322,7 +416,7 @@
   position: absolute;
   left: 24px;
   right: 24px;
-  bottom: 18px;
+  bottom: 14px;
   height: 2px;
   background: linear-gradient(90deg, var(--accent), transparent);
   opacity: 0.55;
@@ -331,8 +425,9 @@
 .method-chain__node strong,
 .workflow-line__step strong {
   display: block;
-  padding-bottom: 22px;
-  font-size: clamp(22px, 2.45vw, 38px);
+  overflow-wrap: anywhere;
+  padding-bottom: 18px;
+  font-size: clamp(18px, 1.75vw, 26px);
   font-weight: 560;
   line-height: 1.16;
 }
@@ -361,6 +456,10 @@
   .slide-frame {
     padding: 8vh 6vw;
     gap: 30px;
+  }
+
+  .slide-frame--split {
+    display: flex;
   }
 
   .card-grid,

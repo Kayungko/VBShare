@@ -7,7 +7,7 @@ interface CompareSlideProps {
 
 export function CompareSlide({ slide }: CompareSlideProps) {
   return (
-    <SlideFrame eyebrow={slide.eyebrow} title={slide.title} subtitle={slide.subtitle}>
+    <SlideFrame eyebrow={slide.eyebrow} title={slide.title} subtitle={slide.subtitle} className="slide-frame--split">
       <div className="compare-grid">
         {[slide.left, slide.right].map((column) =>
           column ? (

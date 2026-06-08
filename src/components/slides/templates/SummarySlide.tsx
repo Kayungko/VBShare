@@ -7,7 +7,7 @@ interface SummarySlideProps {
 
 export function SummarySlide({ slide }: SummarySlideProps) {
   return (
-    <SlideFrame eyebrow={slide.eyebrow} title={slide.title} subtitle={slide.subtitle} align="center">
+    <SlideFrame eyebrow={slide.eyebrow} title={slide.title} subtitle={slide.subtitle} align="center" className="slide-frame--hero">
       {slide.quote ? <blockquote className="summary-quote">{slide.quote}</blockquote> : null}
       {slide.cards?.length ? (
         <div className="summary-actions">

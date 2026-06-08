@@ -7,7 +7,7 @@ interface CardsSlideProps {
 
 export function CardsSlide({ slide }: CardsSlideProps) {
   return (
-    <SlideFrame eyebrow={slide.eyebrow} title={slide.title} subtitle={slide.subtitle} align={slide.type === 'qa' ? 'center' : 'left'}>
+    <SlideFrame eyebrow={slide.eyebrow} title={slide.title} subtitle={slide.subtitle} align={slide.type === 'qa' ? 'center' : 'left'} className={slide.type === 'qa' ? 'slide-frame--hero' : 'slide-frame--split'}>
       {slide.cards?.length ? (
         <div className="card-grid">
           {slide.cards.map((card, index) => (

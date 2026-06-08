@@ -432,6 +432,7 @@ AI 最擅长压缩重复性的脑力劳动。
 已将 docs/AI_SHARE_CONTENT_DRAFT.md 的新版内容主线落地到 src/content/ai-share/slides.ts。
 当前页面结构为 24 页：欢迎页、开场钩子、目录、5 个小细节章节、Unity UI Demo、总结和致谢。
 已完成一轮视觉重构：从蓝紫玻璃感调整为深黑工程控制台风格，并移除内容页无关眉标。
+已继续调整为官网 section 式演示页：内容页使用左右分栏，workflow / method 改为产品化展示面板，修复关键词节点超框问题。
 ```
 
 ### Phase 1：把网页改成 Slide Deck
