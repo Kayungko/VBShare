@@ -12,7 +12,6 @@ export const slides: SlideConfig[] = [
     id: 'hook-shared-topic',
     type: 'workflow',
     section: 'opening',
-    eyebrow: '开场',
     title: '很多 AI Coding 经验，其实都在讲同一件事',
     subtitle: '让 AI 更清楚任务、理解上下文，并交付更方便继续使用的结果。',
     steps: ['Prompt', 'Context', 'Plan', 'Rules', 'Checklist', 'Output', 'Automation'],
@@ -22,7 +21,6 @@ export const slides: SlideConfig[] = [
     id: 'agenda',
     type: 'agenda',
     section: 'opening',
-    eyebrow: '目录',
     title: '今天整理 5 个小细节',
     cards: [
       { title: '把 Prompt 写得像任务' },
@@ -45,7 +43,6 @@ export const slides: SlideConfig[] = [
     id: 'prompt-context',
     type: 'compare',
     section: 'prompt',
-    eyebrow: '一句话需求，通常缺少上下文',
     title: '不要只说“帮我整理一下这个功能”',
     left: {
       label: '一句话',
@@ -64,7 +61,6 @@ export const slides: SlideConfig[] = [
     id: 'prompt-fields',
     type: 'method',
     section: 'prompt',
-    eyebrow: '任务字段',
     title: '把任务拆成 6 个固定字段',
     steps: ['背景', '目标', '输入', '范围', '输出', '检查'],
     statement: '输出决定结果能不能继续使用，检查帮助 AI 补一遍完成标准。',
@@ -81,7 +77,6 @@ export const slides: SlideConfig[] = [
     id: 'plan-before-execute',
     type: 'method',
     section: 'plan',
-    eyebrow: '计划阶段',
     title: '先让 AI 说说它准备怎么做',
     steps: ['复述理解', '拆分步骤', '列出材料', '说明输出', '给出待补充信息'],
     statement: '先看它有没有理解偏，再决定要不要继续执行。',
@@ -90,7 +85,6 @@ export const slides: SlideConfig[] = [
     id: 'plan-prompt-starter',
     type: 'summary',
     section: 'plan',
-    eyebrow: '好用的一句话',
     title: '这句话很适合放在任务开头',
     quote: '先不要直接执行。请先复述你的理解，列出处理步骤，再说明需要我补充什么。',
     cards: [
@@ -112,7 +106,6 @@ export const slides: SlideConfig[] = [
     id: 'rules-long-term',
     type: 'case',
     section: 'rules',
-    eyebrow: '项目习惯',
     title: '有些项目习惯，应该写成长期说明',
     cards: [
       { title: '目录结构' },
@@ -127,7 +120,6 @@ export const slides: SlideConfig[] = [
     id: 'rules-entry',
     type: 'case',
     section: 'rules',
-    eyebrow: '说明入口',
     title: '项目说明入口可以写什么',
     cards: [
       { title: '项目怎么启动' },
@@ -151,7 +143,6 @@ export const slides: SlideConfig[] = [
     id: 'automation-small-tasks',
     type: 'case',
     section: 'automation',
-    eyebrow: '整理类任务',
     title: '适合先交给 AI 的，往往是整理类任务',
     cards: [
       { title: '需求拆解' },
@@ -166,7 +157,6 @@ export const slides: SlideConfig[] = [
     id: 'automation-prompt-template',
     type: 'case',
     section: 'automation',
-    eyebrow: '模板化',
     title: '好用的 Prompt，值得保存成模板',
     cards: [
       { title: '输入材料' },
@@ -189,7 +179,6 @@ export const slides: SlideConfig[] = [
     id: 'output-format',
     type: 'case',
     section: 'output',
-    eyebrow: '输出格式',
     title: '提前规定格式，会少很多整理时间',
     cards: [
       { title: '材料清单', description: '用表格列材料' },
@@ -203,7 +192,6 @@ export const slides: SlideConfig[] = [
     id: 'output-next-materials',
     type: 'case',
     section: 'output',
-    eyebrow: '下一步',
     title: '不要只要结果，也要下一步材料',
     cards: [
       { title: '还缺什么材料' },
@@ -217,7 +205,6 @@ export const slides: SlideConfig[] = [
     id: 'demo-cover',
     type: 'cover',
     section: 'demo',
-    eyebrow: 'Demo',
     title: '活动入口入版任务包生成器',
     subtitle: '用一个 Unity UI 入版场景，把前面的几个小细节串起来。',
   },
@@ -225,7 +212,6 @@ export const slides: SlideConfig[] = [
     id: 'demo-input',
     type: 'compare',
     section: 'demo',
-    eyebrow: '输入',
     title: '一段活动入口入版需求',
     left: {
       label: '原始需求',
@@ -244,7 +230,6 @@ export const slides: SlideConfig[] = [
     id: 'demo-output',
     type: 'case',
     section: 'demo',
-    eyebrow: '输出',
     title: '一份更容易推进的任务包',
     cards: [
       { title: 'AI 可执行工单' },
@@ -260,7 +245,6 @@ export const slides: SlideConfig[] = [
     id: 'demo-linkback',
     type: 'method',
     section: 'demo',
-    eyebrow: '串联',
     title: '这个示例用到了前面 5 个小细节',
     steps: ['任务化 Prompt', '先整理计划', '项目说明入口', '小流程自动化', '结构化输出'],
     statement: '不一定一开始做很大的系统，先把小细节串起来，就能让 AI 更容易进入日常工作。',
@@ -269,7 +253,6 @@ export const slides: SlideConfig[] = [
     id: 'summary',
     type: 'summary',
     section: 'summary',
-    eyebrow: '总结',
     title: '这些小细节，最终是为了让 AI 更容易接住流程',
     quote: 'AI Coding 不只是写代码，也可以帮我们整理任务、沉淀规则、生成清单和推动下一步。',
     cards: [

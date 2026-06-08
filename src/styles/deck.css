@@ -4,20 +4,31 @@
   height: 100vh;
   overflow: hidden;
   background:
-    radial-gradient(circle at 20% 20%, rgba(124, 92, 255, 0.28), transparent 28%),
-    radial-gradient(circle at 80% 18%, rgba(139, 211, 255, 0.18), transparent 30%),
-    linear-gradient(145deg, #070914 0%, #0c1022 55%, #111633 100%);
+    linear-gradient(180deg, rgba(0, 217, 146, 0.055), transparent 34%),
+    radial-gradient(circle at 86% 14%, rgba(0, 217, 146, 0.12), transparent 24%),
+    linear-gradient(145deg, #050507 0%, #080908 50%, #101010 100%);
 }
 
 .deck__background {
   position: absolute;
   inset: 0;
-  opacity: 0.55;
+  opacity: 0.72;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-  background-size: 64px 64px;
-  mask-image: radial-gradient(circle at center, black, transparent 78%);
+    linear-gradient(rgba(61, 58, 57, 0.34) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(61, 58, 57, 0.34) 1px, transparent 1px),
+    linear-gradient(rgba(0, 217, 146, 0.045) 1px, transparent 1px);
+  background-size: 56px 56px, 56px 56px, 100% 12px;
+  mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+}
+
+.deck__background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(0, 217, 146, 0.12) 50%, transparent 100%);
+  opacity: 0.28;
+  transform: translateX(-55%);
+  animation: signal-scan 9s linear infinite;
 }
 
 .deck__slide {
@@ -31,22 +42,30 @@
   position: absolute;
   z-index: 5;
   right: 32px;
-  bottom: 32px;
+  bottom: 28px;
   display: flex;
-  gap: 10px;
+  gap: 8px;
 }
 
 .deck__controls button {
+  width: 44px;
+  height: 44px;
   border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 10px 16px;
+  border-radius: var(--radius-sm);
   color: var(--text);
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(16, 16, 16, 0.86);
   cursor: pointer;
+  transition: border-color 180ms ease, color 180ms ease, background 180ms ease;
+}
+
+.deck__controls button:hover:not(:disabled) {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: rgba(0, 217, 146, 0.08);
 }
 
 .deck__controls button:disabled {
-  opacity: 0.35;
+  opacity: 0.28;
   cursor: not-allowed;
 }
 
@@ -56,13 +75,14 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 4px;
-  background: rgba(255, 255, 255, 0.08);
+  height: 3px;
+  background: rgba(61, 58, 57, 0.72);
 }
 
 .deck-progress__bar {
   height: 100%;
-  background: linear-gradient(90deg, var(--accent), var(--accent-strong));
+  background: var(--accent);
+  box-shadow: 0 0 12px rgba(0, 217, 146, 0.6);
   transition: width 420ms ease;
 }
 
@@ -71,8 +91,8 @@
   z-index: 6;
   right: 36px;
   top: 28px;
-  color: var(--text-muted);
-  letter-spacing: 0.12em;
+  color: var(--text-dim);
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   font-size: 13px;
 }
 
@@ -82,7 +102,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 48px;
+  gap: 42px;
 }
 
 .slide-frame--center {
@@ -96,30 +116,43 @@
 }
 
 .slide-frame__header {
+  position: relative;
   max-width: 1120px;
+}
+
+.slide-frame--center .slide-frame__header::before {
+  content: "";
+  display: block;
+  width: 96px;
+  height: 3px;
+  margin: 0 auto 28px;
+  border-radius: 999px;
+  background: var(--accent);
+  box-shadow: 0 0 18px rgba(0, 217, 146, 0.64);
 }
 
 .slide-frame__eyebrow {
   margin: 0 0 18px;
   color: var(--accent);
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: clamp(18px, 1.8vw, 28px);
   font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
 }
 
 .slide-frame h1 {
   margin: 0;
-  font-size: clamp(42px, 6vw, 92px);
-  line-height: 1.05;
+  font-size: clamp(42px, 6.2vw, 96px);
+  font-weight: 520;
+  line-height: 1.04;
   letter-spacing: 0;
   text-wrap: balance;
 }
 
 .slide-frame__subtitle {
   max-width: 860px;
-  margin: 28px 0 0;
+  margin: 26px 0 0;
   color: var(--text-muted);
-  font-size: clamp(20px, 2vw, 32px);
+  font-size: clamp(20px, 2vw, 30px);
   line-height: 1.45;
 }
 
@@ -128,28 +161,26 @@
   max-width: 1180px;
 }
 
-.cover-meta,
 .summary-actions {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 12px;
+  gap: 10px;
 }
 
-.cover-meta span,
 .summary-actions span {
   border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 10px 18px;
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
   color: var(--text-muted);
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(16, 16, 16, 0.82);
 }
 
 .card-grid,
 .compare-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 22px;
+  gap: 18px;
 }
 
 .card-grid--three {
@@ -163,15 +194,20 @@
 .workflow-line__step {
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
-  background: var(--glass);
+  background: rgba(16, 16, 16, 0.88);
   box-shadow: var(--shadow);
-  backdrop-filter: blur(18px);
 }
 
 .glass-card {
-  min-height: 220px;
-  padding: 30px;
+  min-height: 190px;
+  padding: 26px;
   animation: rise-in 520ms both;
+}
+
+.glass-card:nth-child(2n),
+.workflow-line__step:nth-child(2n),
+.method-chain__node:nth-child(2n) {
+  background: rgba(21, 22, 21, 0.9);
 }
 
 .card-index,
@@ -179,22 +215,25 @@
   display: inline-flex;
   margin-bottom: 28px;
   color: var(--accent);
-  font-weight: 800;
-  letter-spacing: 0.16em;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 13px;
+  font-weight: 700;
 }
 
 .glass-card h2,
 .compare-card h2 {
   margin: 0 0 14px;
-  font-size: clamp(24px, 2.5vw, 42px);
-  line-height: 1.12;
+  font-size: clamp(23px, 2.35vw, 38px);
+  font-weight: 560;
+  line-height: 1.16;
+  text-wrap: balance;
 }
 
 .glass-card p,
 .compare-card p {
   margin: 0;
   color: var(--text-muted);
-  font-size: 20px;
+  font-size: clamp(17px, 1.45vw, 20px);
   line-height: 1.55;
 }
 
@@ -214,9 +253,9 @@
 }
 
 .metric-compare__item {
-  border-radius: 24px;
+  border-radius: var(--radius-sm);
   padding: 30px;
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--surface-raised);
 }
 
 .metric-compare__item span,
@@ -224,11 +263,10 @@
 .method-chain__node span,
 .workflow-line__step span {
   display: block;
-  margin-bottom: 10px;
-  color: var(--text-muted);
-  font-size: 14px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  margin-bottom: 12px;
+  color: var(--text-dim);
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 13px;
 }
 
 .metric-compare__item strong {
@@ -247,56 +285,82 @@
 }
 
 .compare-card {
-  min-height: 360px;
-  padding: 34px;
+  min-height: 330px;
+  padding: 32px;
 }
 
 .compare-card--accent {
-  border-color: rgba(139, 211, 255, 0.55);
-  background: linear-gradient(145deg, rgba(139, 211, 255, 0.18), rgba(124, 92, 255, 0.16));
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(0, 217, 146, 0.12), 0 20px 60px rgba(0, 0, 0, 0.7);
+}
+
+.compare-card--accent span,
+.compare-card--accent h2 {
+  color: var(--accent);
 }
 
 .method-chain,
 .workflow-line {
   display: flex;
   align-items: stretch;
-  gap: 16px;
+  gap: 14px;
   flex-wrap: wrap;
 }
 
 .method-chain__node,
 .workflow-line__step {
+  position: relative;
   flex: 1;
   min-width: 140px;
-  padding: 28px;
+  padding: 24px;
   animation: rise-in 520ms both;
+}
+
+.method-chain__node::after,
+.workflow-line__step::after {
+  content: "";
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 18px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  opacity: 0.55;
 }
 
 .method-chain__node strong,
 .workflow-line__step strong {
   display: block;
-  font-size: clamp(24px, 2.8vw, 44px);
+  padding-bottom: 22px;
+  font-size: clamp(22px, 2.45vw, 38px);
+  font-weight: 560;
+  line-height: 1.16;
 }
 
 .slide-statement,
 .summary-quote {
   max-width: 960px;
-  margin: 34px auto 0;
+  margin: 32px auto 0;
   color: var(--text-muted);
-  font-size: clamp(24px, 2.5vw, 38px);
+  font-size: clamp(22px, 2.25vw, 34px);
   line-height: 1.45;
 }
 
 .summary-quote {
   color: var(--text);
-  border-left: 4px solid var(--accent);
-  padding-left: 28px;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-md);
+  padding: 26px 30px;
   text-align: left;
+  background: rgba(16, 16, 16, 0.88);
+  box-shadow: var(--shadow);
 }
 
 @media (max-width: 900px) {
   .slide-frame {
     padding: 8vh 6vw;
+    gap: 30px;
   }
 
   .card-grid,

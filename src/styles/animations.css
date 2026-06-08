@@ -10,6 +10,16 @@
   }
 }
 
+@keyframes signal-scan {
+  from {
+    transform: translateX(-55%);
+  }
+
+  to {
+    transform: translateX(55%);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

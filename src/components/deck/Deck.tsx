@@ -80,9 +80,9 @@ export function Deck({ config, slides }: DeckProps) {
         </motion.section>
       </AnimatePresence>
 
-      <div className="deck__controls" aria-hidden="true">
-        <button onClick={goPrev} disabled={currentIndex === 0}>上一页</button>
-        <button onClick={goNext} disabled={currentIndex === slides.length - 1}>下一页</button>
+      <div className="deck__controls">
+        <button onClick={goPrev} disabled={currentIndex === 0} aria-label="上一页">&lt;</button>
+        <button onClick={goNext} disabled={currentIndex === slides.length - 1} aria-label="下一页">&gt;</button>
       </div>
     </main>
   )
