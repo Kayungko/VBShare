@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Coding 不只是写代码</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="deck-header">
+      <a class="brand" href="#slide-1">AI_SHARE()</a>
+      <div class="deck-meta">
+        <span id="slideTitle">opening</span>
+        <span id="slideCount">01 / 08</span>
+      </div>
+    </header>
+
+    <main class="deck" aria-live="polite">
+      <section class="slide is-active" id="slide-1" data-title="opening">
+        <div class="slide-copy">
+          <p class="eyebrow">中文 AI 分享会 / Unity UI 入版工作流</p>
+          <h1>AI Coding<br />不只是写代码</h1>
+          <p class="lead">
+            把散碎技巧整理成一个最小流程：任务写清楚，边界说清楚，验证交出来，记录留得住。
+          </p>
+        </div>
+        <div class="terminal-panel hero-terminal">
+          <div class="terminal-bar">
+            <span></span><span></span><span></span><strong>share.plan</strong>
+          </div>
+          <pre><code>$ run ai-coding-share --scope ued-flow
+> prompt   : 工单化
+> context  : 项目说明书
+> plan     : 先计划再执行
+> verify   : 交付验证结果
+> trace    : 版本记录接住操作</code></pre>
+        </div>
+      </section>
+
+      <section class="slide" id="slide-2" data-title="why unstable">
+        <div class="slide-copy wide">
+          <p class="eyebrow">01 / problem</p>
+          <h2>为什么 AI Coding 经常跑不稳</h2>
+          <div class="terminal-list">
+            <div><strong>模糊需求</strong><span>AI 只能猜，猜对靠运气。</span></div>
+            <div><strong>缺少上下文</strong><span>不知道项目边界和禁区。</span></div>
+            <div><strong>没有验收</strong><span>看似完成，但没人知道对不对。</span></div>
+            <div><strong>没有留痕</strong><span>改了什么、为什么改、怎么回滚都说不清。</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" id="slide-3" data-title="work order">
+        <div class="slide-copy">
+          <p class="eyebrow">02 / prompt</p>
+          <h2>Prompt 要像工单，不像聊天</h2>
+          <p class="lead">
+            一条适合 AI 执行的任务，至少要包含背景、目标、输入、范围、限制、输出和验收。
+          </p>
+        </div>
+        <div class="terminal-panel">
+          <div class="terminal-bar">
+            <span></span><span></span><span></span><strong>task.issue</strong>
+          </div>
+          <pre><code>背景：减少入版前重复沟通
+目标：整理一次活动入口入版任务包
+限制：不修改现有代码脚本
+输出：工单 / 材料清单 / 验收 checklist
+验收：列出已确认、未验证、需人工判断的部分</code></pre>
+        </div>
+      </section>
+
+      <section class="slide" id="slide-4" data-title="plan first">
+        <div class="slide-copy wide">
+          <p class="eyebrow">03 / plan</p>
+          <h2>先让 AI 计划，再让 AI 执行</h2>
+          <div class="split-lines">
+            <p>先不要写代码。</p>
+            <p>先复述理解。</p>
+            <p>先列实现计划。</p>
+            <p>先暴露风险点。</p>
+            <p>先提出需要确认的问题。</p>
+          </div>
+          <p class="note">计划不是拖慢效率，而是在自动化之前先暴露缺口。</p>
+        </div>
+      </section>
+
+      <section class="slide" id="slide-5" data-title="rules">
+        <div class="slide-copy">
+          <p class="eyebrow">04 / context</p>
+          <h2>给 AI 一份项目说明书</h2>
+          <p class="lead">
+            稳定的自动化不能只靠临时 Prompt。目录结构、命令、风格、禁区和验证方式，需要有长期入口。
+          </p>
+        </div>
+        <div class="code-strip">
+          <span>AGENTS.md</span>
+          <span>CLAUDE.md</span>
+          <span>.github/copilot-instructions.md</span>
+          <span>team-rules.md</span>
+        </div>
+      </section>
+
+      <section class="slide" id="slide-6" data-title="small loop">
+        <div class="slide-copy wide">
+          <p class="eyebrow">05 / automation</p>
+          <h2>从低风险小闭环开始</h2>
+          <div class="two-column">
+            <div>
+              <h3>优先自动化</h3>
+              <ul>
+                <li>任务拆解</li>
+                <li>报告生成</li>
+                <li>验收清单</li>
+                <li>变更说明</li>
+              </ul>
+            </div>
+            <div>
+              <h3>先别直接放开</h3>
+              <ul>
+                <li>真实项目资产自动修改</li>
+                <li>高风险逻辑改动</li>
+                <li>无法自动验证的修改</li>
+                <li>体验和风险最终判断</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" id="slide-7" data-title="case">
+        <div class="slide-copy case-copy">
+          <p class="eyebrow">06 / example</p>
+          <h2>小示例：活动入口入版任务包</h2>
+          <p class="lead">
+            不让 AI 直接改正式项目资产。先把一次 Unity UI 入版需求整理成 AI 能参与的流程包。
+          </p>
+        </div>
+        <div class="case-grid">
+          <div class="terminal-panel">
+            <div class="terminal-bar">
+              <span></span><span></span><span></span><strong>input</strong>
+            </div>
+            <pre><code>模块：活动入口面板
+
+改动：
+1. 新增限时活动入口
+2. 替换入口 Banner
+3. 增加倒计时展示
+4. 增加红点状态
+5. 点击入口跳转详情页
+
+限制：
+- 不修改活动开启条件逻辑
+- 不修改红点系统底层逻辑
+- 不改动项目内现有代码脚本</code></pre>
+          </div>
+          <div class="terminal-panel accent">
+            <div class="terminal-bar">
+              <span></span><span></span><span></span><strong>output</strong>
+            </div>
+            <pre><code>输出：
+1. AI 可执行工单
+2. 入版前材料清单
+3. 自动化可处理项
+4. 人工确认点
+5. 验收 checklist
+6. P4 提交说明草稿</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" id="slide-8" data-title="close">
+        <div class="slide-copy wide">
+          <p class="eyebrow">07 / takeaway</p>
+          <h2>最后一句话</h2>
+          <p class="final-line">
+            AI Coding 的重点不是让 AI 替我们写代码，而是把实际工作拆成 AI 能理解、能执行、能验证、能留下记录的流程。
+          </p>
+          <div class="mini-footer">
+            <span>trace: branch / commit / review / rollback</span>
+            <span>正式项目资产仍遵循公司既有版本管理流程</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="deck-controls" aria-label="幻灯片控制">
+      <button id="prevSlide" type="button">prev</button>
+      <div class="dots" id="dots" aria-label="幻灯片位置"></div>
+      <button id="nextSlide" type="button">next</button>
+    </footer>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
