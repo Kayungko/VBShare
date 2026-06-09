@@ -7,7 +7,7 @@ interface AgendaSlideProps {
 
 export function AgendaSlide({ slide }: AgendaSlideProps) {
   return (
-    <SlideFrame eyebrow={slide.eyebrow} title={slide.title} subtitle={slide.subtitle} className="slide-frame--split">
+    <SlideFrame eyebrow={slide.eyebrow} title={slide.title} subtitle={slide.subtitle}>
       <div className="card-grid card-grid--three">
         {slide.cards?.map((card, index) => (
           <article className="glass-card" key={card.title} style={{ animationDelay: `${index * 90}ms` }}>

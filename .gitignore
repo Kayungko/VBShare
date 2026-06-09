@@ -1,2 +1,5 @@
 awesome-design-md-cn/
+node_modules/
+dist/
+*.tsbuildinfo
 

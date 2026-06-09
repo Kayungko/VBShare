@@ -36,6 +36,11 @@ export interface SlideMetric {
   label: string
 }
 
+export interface SlideStep {
+  label: string
+  caption?: string
+}
+
 export interface SlideConfig {
   id: string
   type: SlideType
@@ -43,10 +48,12 @@ export interface SlideConfig {
   eyebrow?: string
   title: string
   subtitle?: string
+  image?: string
+  imageAlt?: string
   statement?: string
   metric?: SlideMetric
   cards?: SlideCard[]
-  steps?: string[]
+  steps?: Array<string | SlideStep>
   left?: SlideColumn
   right?: SlideColumn
   quote?: string
